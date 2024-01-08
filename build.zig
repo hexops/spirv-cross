@@ -5,7 +5,6 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
     const lib = b.addStaticLibrary(.{
         .name = "spirv-cross",
-        .root_source_file = .{ .path = "spirv_cpp.cpp" },
         .target = target,
         .optimize = optimize,
     });
@@ -27,6 +26,7 @@ pub fn build(b: *std.Build) void {
 }
 
 const sources = &[_][]const u8{
+    "spirv_cpp.cpp",
     "spirv_cfg.cpp",
     "spirv_cross_c.cpp",
     "spirv_cross.cpp",
