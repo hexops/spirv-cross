@@ -15,12 +15,9 @@ pub fn build(b: *std.Build) void {
         "-DSPIRV_CROSS_C_API_HLSL",
         "-DSPIRV_CROSS_C_API_MSL",
     } });
-    lib.addIncludePath(.{ .path = "." });
-    lib.installHeadersDirectoryOptions(.{
-        .source_dir = .{ .path = "" },
+    lib.addIncludePath(b.path("."));
+    lib.installHeadersDirectory(b.path(""), "spirv-cross", .{
         .include_extensions = &.{".h"},
-        .install_dir = .header,
-        .install_subdir = "spirv-cross",
     });
     b.installArtifact(lib);
 }
