@@ -16,7 +16,7 @@ pub fn build(b: *std.Build) void {
         "-DSPIRV_CROSS_C_API_MSL",
     } });
     lib.addIncludePath(b.path("."));
-    lib.installHeadersDirectory(b.path(""), "spirv-cross", .{
+    lib.installHeadersDirectory(b.path("."), "spirv-cross", .{
         .include_extensions = &.{".h"},
     });
     b.installArtifact(lib);
